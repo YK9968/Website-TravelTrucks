@@ -1,9 +1,18 @@
+import { Link } from "react-router-dom";
 import css from "./HomePage.module.css";
 
 export default function HomePage() {
   return (
-    <section className={css.container}>
-      <p>home page</p>
+    <section className={css.hero}>
+      <div className={css.container}>
+        <h1 className={css.mainTitle}>Campers of your dreams</h1>
+        <p className={css.subTitle}>
+          You can find everything you want in our catalog
+        </p>
+        <Link to="/catalog" className={css.catalogLink}>
+          View Now
+        </Link>
+      </div>
     </section>
   );
 }
