@@ -1,0 +1,7 @@
+<svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+<path fill="#fff" style="fill: var(--color1, #fff)" d="M32 16c0 8.837-7.163 16-16 16s-16-7.163-16-16c0-8.837 7.163-16 16-16s16 7.163 16 16z"></path>
+<path fill="#475467" style="fill: var(--color2, #475467)" d="M12.571 10.493v-3.636h14.448v3.636h-5v12.987h-4.448v-12.987h-5z"></path>
+<path fill="#101828" style="fill: var(--color3, #101828)" d="M5.714 15.065v-3.636h14.448v3.636h-5v12.987h-4.448v-12.987h-5z"></path>
+
+</svg>

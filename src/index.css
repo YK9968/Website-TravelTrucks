@@ -39,8 +39,9 @@ img {
 }
 
 body {
-  height: 100vh;
   align-content: center;
+  font-family: "Inter", sans-serif;
+  margin: 0;
 }
 
 .overflowHidden {

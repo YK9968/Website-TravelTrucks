@@ -1,0 +1,6 @@
+.container {
+  padding: 0 64px;
+  display: flex;
+  background-color: var(--badges);
+  align-items: center;
+}
