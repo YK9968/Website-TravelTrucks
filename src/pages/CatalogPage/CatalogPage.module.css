@@ -1,3 +1,17 @@
 .container {
+  display: flex;
+  gap: 65px;
+  margin: auto;
+  margin-top: 39px;
+  margin-bottom: 52px;
+}
+
+.catalog {
   padding: 0 64px;
+}
+
+.filterContainer {
+  margin-top: 9px;
+  display: flex;
+  flex-direction: column;
 }
