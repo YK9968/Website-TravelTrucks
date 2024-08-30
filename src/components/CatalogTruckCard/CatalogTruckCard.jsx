@@ -42,7 +42,7 @@ export default function CatalogTruckCard({ truck }) {
   return (
     <>
       <div className={css.imgContainer}>
-        <img className={css.img} src={gallery[0].original} alt="Truck" />
+        <img className={css.img} src={gallery[0].thumb} alt="Truck" />
       </div>
       <div className={css.truckInfo}>
         <div className={css.costContainer}>
@@ -133,7 +133,7 @@ export default function CatalogTruckCard({ truck }) {
             )}
           </ul>
         </div>
-        <Link className={css.link} to={`/catalog:${id}`}>
+        <Link className={css.link} to={`/catalog/${id}`}>
           Show more
         </Link>
       </div>

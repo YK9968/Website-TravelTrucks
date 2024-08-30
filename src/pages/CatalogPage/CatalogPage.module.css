@@ -1,13 +1,12 @@
 .container {
   display: flex;
   gap: 65px;
-  margin: auto;
-  margin-top: 39px;
-  margin-bottom: 52px;
 }
 
 .catalog {
-  padding: 0 64px;
+  max-width: 1440px;
+  padding: 39px 64px 52px 64px;
+  margin: 0 auto;
 }
 
 .filterContainer {
