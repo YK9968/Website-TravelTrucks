@@ -1,4 +1,4 @@
-import { NavLink, Outlet, useParams } from "react-router-dom";
+import { NavLink, Outlet, useLocation, useParams } from "react-router-dom";
 import css from "./DetailsTruckPage.module.css";
 import { useEffect, useState } from "react";
 import { fetchTrucksById } from "../../utils/getCardById";
@@ -11,6 +11,8 @@ export default function DetailsTruckPage() {
   const { truckId } = useParams();
   const [truckInfo, setTruckInfo] = useState(null);
   const [randomImg, setRandomImg] = useState("");
+
+  const path = useLocation();
 
   useEffect(() => {
     async function fetchData() {
@@ -61,8 +63,10 @@ export default function DetailsTruckPage() {
       <ul className={css.listLinks}>
         <li>
           <NavLink
-            className={(isActive) =>
-              changeActivePage(isActive, css.active, css.link)
+            className={({ isActive }) =>
+              isActive || !path.pathname.includes("reviews")
+                ? css.active
+                : css.link
             }
             to="features"
           >
