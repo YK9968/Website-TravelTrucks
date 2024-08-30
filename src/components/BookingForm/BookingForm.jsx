@@ -2,6 +2,7 @@ import { Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 import css from "./BookingForm.module.css";
 import { ErrorMessage } from "formik";
+import toast from "react-hot-toast";
 
 export default function BookingForm() {
   const initialValues = {
@@ -13,6 +14,9 @@ export default function BookingForm() {
   const handleSubmit = (values, actions) => {
     console.log(values);
     actions.resetForm();
+    toast.success(
+      "Success! Your submission was received. We will get back to you soon"
+    );
   };
 
   const validation = Yup.object().shape({
