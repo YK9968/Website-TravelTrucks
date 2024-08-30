@@ -1,29 +1,32 @@
 import { NavLink, Outlet, useLocation, useParams } from "react-router-dom";
 import css from "./DetailsTruckPage.module.css";
 import { useEffect, useState } from "react";
-import { fetchTrucksById } from "../../utils/getCardById";
+import Loader from "../../components/Loader/Loader";
 import { HiStar } from "react-icons/hi";
 import { CiMap } from "react-icons/ci";
 import { getRandomImg } from "../../utils/getRundomFoto";
 import { changeActivePage } from "../../utils/activePage";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  selectTruckItems,
+  selectTruckLoading,
+} from "../../redux/truck/selectors";
+import { fetchTruck } from "../../redux/truck/operation";
 
 export default function DetailsTruckPage() {
   const { truckId } = useParams();
-  const [truckInfo, setTruckInfo] = useState(null);
+  const truckInfo = useSelector(selectTruckItems);
   const [randomImg, setRandomImg] = useState("");
-
   const path = useLocation();
+  const isLoading = useSelector(selectTruckLoading);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    async function fetchData() {
-      const response = await fetchTrucksById(truckId);
-      setTruckInfo(response);
-      setRandomImg(getRandomImg());
-    }
-    fetchData();
-  }, [truckId]);
+    dispatch(fetchTruck(truckId));
+    setRandomImg(getRandomImg());
+  }, [dispatch, truckId]);
 
-  if (!truckInfo) {
+  if (truckInfo.length === 0) {
     return;
   }
 
@@ -32,6 +35,7 @@ export default function DetailsTruckPage() {
 
   return (
     <section className={css.truckInfoSection}>
+      {isLoading && <Loader />}
       <div className={css.truckInfoContainer}>
         <h2 className={css.truckName}>{name}</h2>
         <div className={css.subContainer}>

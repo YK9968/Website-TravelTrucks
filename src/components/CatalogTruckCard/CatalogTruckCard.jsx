@@ -1,43 +1,13 @@
-import {
-  BsCupHot,
-  BsDiagram3,
-  BsDisplay,
-  BsDroplet,
-  BsFuelPump,
-  BsSuitHeart,
-  BsUiRadios,
-  BsWind,
-} from "react-icons/bs";
+import { BsSuitHeart } from "react-icons/bs";
 import css from "./CatalogTruckCard.module.css";
 import { HiStar } from "react-icons/hi";
 import { CiMap } from "react-icons/ci";
-import { TbFridge, TbMicrowave } from "react-icons/tb";
-import { FaHandHoldingWater } from "react-icons/fa";
-import { FaFireBurner } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import Category from "../Category/Category";
 
 export default function CatalogTruckCard({ truck }) {
-  const {
-    name,
-    price,
-    rating,
-    location,
-    description,
-    reviews,
-    transmission,
-    engine,
-    AC,
-    bathroom,
-    kitchen,
-    TV,
-    radio,
-    refrigerator,
-    microwave,
-    gas,
-    water,
-    gallery,
-    id,
-  } = truck;
+  const { name, price, rating, location, description, reviews, gallery, id } =
+    truck;
 
   return (
     <>
@@ -68,70 +38,7 @@ export default function CatalogTruckCard({ truck }) {
         </div>
         <p className={css.description}>{description}</p>
         <div className={css.categoryContainer}>
-          <ul className={css.listCategory}>
-            <li className={css.category}>
-              <BsDiagram3 className={css.iconCategory} />
-              <p className={css.categoryText}>{transmission}</p>
-            </li>
-            <li className={css.category}>
-              <BsFuelPump className={css.iconCategory} />
-              <p className={css.categoryText}>{engine}</p>
-            </li>
-            {AC && (
-              <li className={css.category}>
-                <BsWind className={css.iconCategory} />
-                <p className={css.categoryText}>AC</p>
-              </li>
-            )}
-            {kitchen && (
-              <li className={css.category}>
-                <BsCupHot className={css.iconCategory} />
-                <p className={css.categoryText}>Kitchen</p>
-              </li>
-            )}
-            {refrigerator && (
-              <li className={css.category}>
-                <TbFridge className={css.iconCategory} />
-                <p className={css.categoryText}>Refrigerator</p>
-              </li>
-            )}
-            {radio && (
-              <li className={css.category}>
-                <BsUiRadios className={css.iconCategory} />
-                <p className={css.categoryText}>Radio</p>
-              </li>
-            )}
-            {bathroom && (
-              <li className={css.category}>
-                <BsDroplet className={css.iconCategory} />
-                <p className={css.categoryText}>Bathroom</p>
-              </li>
-            )}
-            {microwave && (
-              <li className={css.category}>
-                <TbMicrowave className={css.iconCategory} />
-                <p className={css.categoryText}>Microwave</p>
-              </li>
-            )}
-            {TV && (
-              <li className={css.category}>
-                <BsDisplay className={css.iconCategory} />
-                <p className={css.categoryText}>TV</p>
-              </li>
-            )}
-            {gas && (
-              <li className={css.category}>
-                <FaFireBurner className={css.iconCategory} />
-                <p className={css.categoryText}>Gas</p>
-              </li>
-            )}
-            {water && (
-              <li className={css.category}>
-                <FaHandHoldingWater className={css.iconCategory} />
-                <p className={css.categoryText}>Water</p>
-              </li>
-            )}
-          </ul>
+          <Category truckInfo={truck} />
         </div>
         <Link className={css.link} to={`/catalog/${id}`}>
           Show more

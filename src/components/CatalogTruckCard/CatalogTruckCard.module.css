@@ -98,46 +98,9 @@
   font-size: 16px;
   line-height: 150%;
   color: var(--text);
-  white-space: nowrap; /* Забороняє переноси рядка */
-  overflow: hidden; /* Приховує текст, що виходить за межі контейнера */
+  white-space: nowrap;
+  overflow: hidden;
   text-overflow: ellipsis;
-}
-
-.listCategory {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  row-gap: 8px;
-  width: 525px;
-  margin-top: 24px;
-  margin-bottom: 24px;
-}
-
-.category {
-  display: flex;
-  justify-content: center;
-  background-color: var(--badges);
-  border-radius: 100px;
-  padding: 12px 18px;
-  gap: 8px;
-}
-
-.categoryText::first-letter {
-  text-transform: uppercase;
-}
-
-.categoryText {
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 150%;
-  text-align: center;
-  color: var(--main);
-}
-
-.iconCategory {
-  width: 20px;
-  height: 20px;
 }
 
 .link {

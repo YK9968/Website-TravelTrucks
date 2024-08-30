@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { fetchAllTrucks } from "./operations";
 
 const trucksSlice = createSlice({
-  name: "trucks",
+  name: "allTrucks",
   initialState: {
     items: [],
     loading: false,
