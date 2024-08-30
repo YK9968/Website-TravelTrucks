@@ -2,7 +2,6 @@ import { useSelector } from "react-redux";
 import css from "./TruckFeatures.module.css";
 import { selectTruckItems } from "../../redux/truck/selectors";
 import BookingForm from "../BookingForm/BookingForm";
-
 import Category from "../Category/Category";
 import Characteristics from "../Characteristics/Characteristics";
 
