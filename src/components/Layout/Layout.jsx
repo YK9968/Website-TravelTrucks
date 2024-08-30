@@ -4,13 +4,15 @@ import css from "./Layout.module.css";
 import { useSelector } from "react-redux";
 import { selectLoading } from "../../redux/trucks/selectors";
 import Loader from "../Loader/Loader";
+import { selectTruckLoading } from "../../redux/truck/selectors";
 export default function Layout({ children }) {
-  const isLoading = useSelector(selectLoading);
+  const allTrucksLoading = useSelector(selectLoading);
+  const truckLoading = useSelector(selectTruckLoading);
 
   return (
     <>
       <header className={css.header}>
-        {isLoading && <Loader />}
+        {(allTrucksLoading && <Loader />) || (truckLoading && <Loader />)}
         <div className={css.headerContainer}>
           <Logo />
           <Navigation />

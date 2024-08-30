@@ -17,8 +17,8 @@ export default function TruckFeatures() {
           <h2 className={css.subTitle}>Vehicle details</h2>
           <Characteristics truckInfo={truckInfo} />
         </div>
-        <BookingForm />
       </div>
+      <BookingForm />
     </div>
   );
 }

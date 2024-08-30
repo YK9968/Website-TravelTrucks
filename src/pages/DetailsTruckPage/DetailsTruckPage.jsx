@@ -18,12 +18,12 @@ export default function DetailsTruckPage() {
   const truckInfo = useSelector(selectTruckItems);
   const [randomImg, setRandomImg] = useState("");
   const path = useLocation();
-  const isLoading = useSelector(selectTruckLoading);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchTruck(truckId));
     setRandomImg(getRandomImg());
+    window.scrollTo(0, 0);
   }, [dispatch, truckId]);
 
   if (truckInfo.length === 0) {
@@ -35,7 +35,6 @@ export default function DetailsTruckPage() {
 
   return (
     <section className={css.truckInfoSection}>
-      {isLoading && <Loader />}
       <div className={css.truckInfoContainer}>
         <h2 className={css.truckName}>{name}</h2>
         <div className={css.subContainer}>
