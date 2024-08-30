@@ -30,19 +30,42 @@
 
 .inputText {
   border-radius: 12px;
-  padding: 18px 337px 18px 18px;
+  padding: 18px 18px 18px 18px;
   width: 527px;
   height: 60px;
   background-color: var(--inputs);
-  border: none;
   margin-bottom: 14px;
+  border: none;
+  outline: none;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--main);
 }
 
-.form .inputText:last-of-type {
-  padding: 18px 308px 76px 18px;
+.inputComent {
+  padding: 18px 18px 76px 18px;
   width: 527px;
   height: 118px;
   margin-bottom: 104px;
+  background-color: var(--inputs);
+  resize: none;
+  border: none;
+  outline: none;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--main);
+  white-space: pre-wrap;
+}
+
+.inputComent::-webkit-scrollbar {
+  width: 5px;
+}
+
+.inputComent::-webkit-scrollbar-thumb {
+  background-color: var(--button-hover);
+  border-radius: 10px;
 }
 
 .formTitle {
@@ -61,4 +84,27 @@
   line-height: 150%;
   color: var(--gray);
   margin-bottom: 24px;
+}
+
+.error {
+  position: absolute;
+  top: 25%;
+  right: 10%;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--button-hover);
+}
+
+.errorContainer {
+  position: relative;
+}
+.inputText::-webkit-datetime-edit {
+  display: none; /* Приховати іконку календаря */
+}
+
+.inputText::-webkit-calendar-picker-indicator {
+  position: absolute;
+  top: 25%;
+  right: 10%;
 }
