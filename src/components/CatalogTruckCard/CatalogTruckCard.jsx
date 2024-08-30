@@ -4,11 +4,19 @@ import { HiStar } from "react-icons/hi";
 import { CiMap } from "react-icons/ci";
 import { Link } from "react-router-dom";
 import Category from "../Category/Category";
+import clsx from "clsx";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleFavoriteTruck } from "../../redux/favorites/slice";
+import { selectIsFavoriteId } from "../../redux/favorites/selectors";
 
 export default function CatalogTruckCard({ truck }) {
+  const favorite = useSelector(selectIsFavoriteId);
+  const dispatch = useDispatch();
+  const handleIsFavorite = () => {
+    dispatch(toggleFavoriteTruck({ id }));
+  };
   const { name, price, rating, location, description, reviews, gallery, id } =
     truck;
-
   return (
     <>
       <div className={css.imgContainer}>
@@ -19,8 +27,18 @@ export default function CatalogTruckCard({ truck }) {
           <h2 className={css.truckName}>{name}</h2>
           <div className={css.priceContainer}>
             <h2 className={css.truckPrice}>€{price}</h2>
-            <button type="button" className={css.buttonHeart}>
-              <BsSuitHeart className={css.heartIcon} />
+            <button
+              onClick={handleIsFavorite}
+              type="button"
+              className={css.buttonHeart}
+            >
+              <BsSuitHeart
+                className={clsx(
+                  favorite.some((item) => item.id === id)
+                    ? css.active
+                    : css.disabled
+                )}
+              />
             </button>
           </div>
         </div>

@@ -1,16 +1,12 @@
 import { NavLink, Outlet, useLocation, useParams } from "react-router-dom";
 import css from "./DetailsTruckPage.module.css";
 import { useEffect, useState } from "react";
-import Loader from "../../components/Loader/Loader";
 import { HiStar } from "react-icons/hi";
 import { CiMap } from "react-icons/ci";
 import { getRandomImg } from "../../utils/getRundomFoto";
 import { changeActivePage } from "../../utils/activePage";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  selectTruckItems,
-  selectTruckLoading,
-} from "../../redux/truck/selectors";
+import { selectTruckItems } from "../../redux/truck/selectors";
 import { fetchTruck } from "../../redux/truck/operation";
 
 export default function DetailsTruckPage() {
@@ -55,7 +51,11 @@ export default function DetailsTruckPage() {
       <ul className={css.galleryList}>
         {gallery.map((image) => (
           <li className={css.galleryListItem} key={image.original}>
-            <img className={css.truckImg} src={image.thumb} alt="photo truck" />
+            <img
+              className={css.truckImg}
+              src={image.original}
+              alt="photo truck"
+            />
           </li>
         ))}
         <li className={css.galleryListItem}>
