@@ -2,6 +2,8 @@ import { configureStore } from "@reduxjs/toolkit";
 import allTrucksReducer from "./trucks/slice";
 import truckReducer from "./truck/slice";
 import favoriteReducer from "./favorites/slice";
+import filterReducer from "./filters/slice";
+import paginationReducer from "./pagination/slice";
 
 import {
   persistStore,
@@ -31,6 +33,8 @@ export const store = configureStore({
     allTrucks: allTrucksReducer,
     truck: truckReducer,
     favorite: persistFavoriteReducer,
+    filter: filterReducer,
+    pagination: paginationReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

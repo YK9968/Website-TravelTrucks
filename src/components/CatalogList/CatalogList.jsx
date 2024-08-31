@@ -1,32 +1,26 @@
 import { useDispatch, useSelector } from "react-redux";
 import css from "./CatalogList.module.css";
-import { selectItems } from "../../redux/trucks/selectors";
+import {
+  selectLoading,
+  selectVisibleTrucks,
+} from "../../redux/trucks/selectors";
 import CatalogTruckCard from "../../components/CatalogTruckCard/CatalogTruckCard";
-import { useState } from "react";
 import { activateLoader } from "../../redux/trucks/slice";
 import clsx from "clsx";
+import { selectPaginationPage } from "../../redux/pagination/selectors";
+import { addValue } from "../../redux/pagination/slice";
+import badFilterImg from "../../assets/img/bad-filter.png";
 
 export default function CatalogList() {
-  const trucks = useSelector(selectItems);
-  const [visibleCount, setVisibleCount] = useState(4);
-  const [isDisabled, setIsDisabled] = useState(false);
-
+  const trucks = useSelector(selectVisibleTrucks);
+  const visibleCount = useSelector(selectPaginationPage);
+  const loading = useSelector(selectLoading);
   const dispatch = useDispatch();
 
   const loadMore = () => {
-    if (visibleCount >= trucks.length) {
-      setIsDisabled(true);
-      return;
-    }
     dispatch(activateLoader(true));
     setTimeout(() => {
-      setVisibleCount((prevCount) => {
-        const newCount = Math.min(prevCount + 4, trucks.length);
-        if (newCount >= trucks.length) {
-          setIsDisabled(true);
-        }
-        return newCount;
-      });
+      dispatch(addValue(4));
       dispatch(activateLoader(false));
     }, 500);
   };
@@ -41,13 +35,25 @@ export default function CatalogList() {
         ))}
       </ul>
 
-      <button
-        onClick={loadMore}
-        className={clsx(isDisabled ? css.disLoadMore : css.loadMore)}
-        disabled={isDisabled}
-      >
-        Load more
-      </button>
+      {trucks.length === 0 && !loading ? (
+        <div className={css.badFilter}>
+          <img
+            className={css.badFilterImg}
+            src={badFilterImg}
+            alt="Oops! We couldn`t find any vans with your filters."
+          />
+        </div>
+      ) : (
+        <button
+          onClick={loadMore}
+          className={clsx(
+            visibleCount >= trucks.length ? css.disLoadMore : css.loadMore
+          )}
+          disabled={visibleCount >= trucks.length ? true : false}
+        >
+          Load more
+        </button>
+      )}
     </>
   );
 }

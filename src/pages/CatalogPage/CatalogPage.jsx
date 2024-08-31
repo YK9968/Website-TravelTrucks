@@ -4,12 +4,14 @@ import CatalogList from "../../components/CatalogList/CatalogList";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { fetchAllTrucks } from "../../redux/trucks/operations";
+import { resetFilters } from "../../redux/filters/slice";
 
 export default function CatalogPage() {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchAllTrucks());
+    dispatch(resetFilters());
   }, [dispatch]);
 
   return (

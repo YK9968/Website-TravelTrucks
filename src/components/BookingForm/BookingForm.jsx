@@ -11,8 +11,8 @@ export default function BookingForm() {
     bokingDate: "",
     comment: "",
   };
-  const handleSubmit = (values, actions) => {
-    console.log(values);
+  const handleSubmit = (value, actions) => {
+    // dispatch(someOperation(value)) - якщо було б куди відправляти
     actions.resetForm();
     toast.success(
       "Success! Your submission was received. We will get back to you soon"

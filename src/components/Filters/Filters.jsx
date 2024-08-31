@@ -3,9 +3,11 @@ import css from "./Filters.module.css";
 import Location from "../Location/Location";
 import VehicleEquipment from "../VehicleEquipment/VehicleEquipment";
 import VehiclesOptions from "../VehiclesOptions/VehiclesOptions";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { selectItems } from "../../redux/trucks/selectors";
 import { vehicleTypes } from "../../utils/selectVehicle";
+import { addFilters } from "../../redux/filters/slice";
+import { changeValue } from "../../redux/pagination/slice";
 
 export default function Filters() {
   const items = useSelector(selectItems);
@@ -30,8 +32,14 @@ export default function Filters() {
     water: false,
   };
 
+  const dispatch = useDispatch();
   const handleFilterSubmit = (value, actions) => {
-    console.log(value);
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+    dispatch(addFilters(value));
+    dispatch(changeValue(4));
     actions.resetForm();
   };
 

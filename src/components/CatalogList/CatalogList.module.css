@@ -48,3 +48,14 @@
 .loadMore:hover {
   border: 1px solid var(--button-hover);
 }
+
+.badFilter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 888px;
+}
+
+.badFilterImg {
+  width: 600px;
+}
