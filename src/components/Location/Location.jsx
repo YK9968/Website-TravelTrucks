@@ -1,17 +1,24 @@
+import { Field } from "formik";
 import css from "./Location.module.css";
 import { CiMap } from "react-icons/ci";
+import { useId } from "react";
 
 export default function Location() {
+  const locationId = useId();
+
   return (
-    <label className={css.labelLocation} htmlFor="location">
-      Location
+    <div className={css.locationContainer}>
+      <label className={css.labelLocation} htmlFor={locationId}>
+        Location
+      </label>
       <CiMap className={css.icon} />
-      <input
+      <Field
         className={css.inputLocation}
-        id="location"
         type="text"
         placeholder="City"
+        name="location"
+        id={locationId}
       />
-    </label>
+    </div>
   );
 }

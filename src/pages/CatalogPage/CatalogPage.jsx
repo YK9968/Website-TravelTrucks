@@ -1,5 +1,4 @@
 import css from "./CatalogPage.module.css";
-import Location from "../../components/Location/Location";
 import Filters from "../../components/Filters/Filters";
 import CatalogList from "../../components/CatalogList/CatalogList";
 import { useEffect } from "react";
@@ -17,7 +16,6 @@ export default function CatalogPage() {
     <section className={css.catalog}>
       <div className={css.container}>
         <div className={css.filterContainer}>
-          <Location />
           <Filters />
         </div>
         <div>
