@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import css from "./CatalogList.module.css";
 import {
+  selectError,
   selectLoading,
   selectVisibleTrucks,
 } from "../../redux/trucks/selectors";
@@ -10,11 +11,13 @@ import clsx from "clsx";
 import { selectPaginationPage } from "../../redux/pagination/selectors";
 import { addValue } from "../../redux/pagination/slice";
 import badFilterImg from "../../assets/img/bad-filter.png";
+import fetchErrorImg from "../../assets/img/error.png";
 
 export default function CatalogList() {
   const trucks = useSelector(selectVisibleTrucks);
   const visibleCount = useSelector(selectPaginationPage);
   const loading = useSelector(selectLoading);
+  const error = useSelector(selectError);
   const dispatch = useDispatch();
 
   const loadMore = () => {
@@ -34,8 +37,14 @@ export default function CatalogList() {
           </li>
         ))}
       </ul>
-
-      {trucks.length === 0 && !loading ? (
+      {error && (
+        <img
+          className={css.fetchErrorImg}
+          src={fetchErrorImg}
+          alt="Connection issues"
+        />
+      )}
+      {trucks.length === 0 && !loading && !error ? (
         <div className={css.badFilter}>
           <img
             className={css.badFilterImg}

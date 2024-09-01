@@ -4,7 +4,6 @@ import Layout from "../Layout/Layout";
 import TruckFeatures from "../TruckFeatures/TruckFeatures";
 import TruckReviews from "../TruckReviews/TruckReviews";
 import NotFound from "../../pages/NotFound/NotFound";
-
 const HomePage = lazy(() => import("../../pages/HomePage/HomePage"));
 const CatalogPage = lazy(() => import("../../pages/CatalogPage/CatalogPage"));
 const DetailsTruckPage = lazy(() =>

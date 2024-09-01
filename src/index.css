@@ -1,5 +1,10 @@
 @import "modern-normalize/modern-normalize.css";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 
+body {
+  font-family: var(--font-family);
+  margin: 0;
+}
 :root {
   --main: #101828;
   --text: #475467;
@@ -38,12 +43,6 @@ ol {
 img {
   display: block;
   max-width: 100%;
-}
-
-body {
-  font-family: var(--font-family);
-  margin: 0;
-
 }
 
 .overflowHidden {

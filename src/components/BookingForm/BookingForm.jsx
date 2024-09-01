@@ -13,8 +13,7 @@ export default function BookingForm() {
     comment: "",
   };
   const handleSubmit = (value, actions) => {
-    console.log(value);
-    // dispatch(someOperation(value)) - якщо було б куди відправляти
+    // dispatch(someOperation(value)) якщо був би бекенд для відправки
     actions.resetForm();
     toast.success(
       "Success! Your submission was received. We will get back to you soon"
@@ -23,7 +22,7 @@ export default function BookingForm() {
 
   const validation = Yup.object().shape({
     username: Yup.string()
-      .min(3, "Too Short!")
+      .min(2, "Too Short!")
       .max(50, "Too Long!")
       .required("Required"),
     email: Yup.string()

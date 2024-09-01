@@ -12,11 +12,9 @@ import { activateLoader } from "../../redux/trucks/slice";
 
 export default function Filters() {
   const items = useSelector(selectItems);
-
   const variantesEngine = vehicleTypes(items, "engine");
   const variantesForm = vehicleTypes(items, "form");
   const variantesTransmission = vehicleTypes(items, "transmission");
-
   const initialValues = {
     location: "",
     transmission: "",

@@ -114,3 +114,7 @@
   border-bottom: 5px solid var(--button);
   padding-bottom: 24px;
 }
+
+.fetchErrorImg {
+  margin: 0 auto;
+}

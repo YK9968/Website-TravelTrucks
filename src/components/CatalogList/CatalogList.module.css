@@ -57,5 +57,11 @@
 }
 
 .badFilterImg {
+  margin: 0 auto;
+  width: 600px;
+}
+
+.fetchErrorImg {
+  margin: 0 auto;
   width: 600px;
 }
