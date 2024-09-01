@@ -8,6 +8,7 @@ import { selectItems } from "../../redux/trucks/selectors";
 import { vehicleTypes } from "../../utils/selectVehicle";
 import { addFilters } from "../../redux/filters/slice";
 import { changeValue } from "../../redux/pagination/slice";
+import { activateLoader } from "../../redux/trucks/slice";
 
 export default function Filters() {
   const items = useSelector(selectItems);
@@ -38,9 +39,13 @@ export default function Filters() {
       top: 0,
       behavior: "smooth",
     });
-    dispatch(addFilters(value));
-    dispatch(changeValue(4));
-    actions.resetForm();
+    dispatch(activateLoader(true));
+    setTimeout(() => {
+      dispatch(addFilters(value));
+      dispatch(changeValue(4));
+      actions.resetForm();
+      dispatch(activateLoader(false));
+    }, 500);
   };
 
   return (

@@ -3,6 +3,7 @@ import * as Yup from "yup";
 import css from "./BookingForm.module.css";
 import { ErrorMessage } from "formik";
 import toast from "react-hot-toast";
+import Calendar from "../Calendar/Calendar";
 
 export default function BookingForm() {
   const initialValues = {
@@ -12,6 +13,7 @@ export default function BookingForm() {
     comment: "",
   };
   const handleSubmit = (value, actions) => {
+    console.log(value);
     // dispatch(someOperation(value)) - якщо було б куди відправляти
     actions.resetForm();
     toast.success(
@@ -24,13 +26,14 @@ export default function BookingForm() {
       .min(3, "Too Short!")
       .max(50, "Too Long!")
       .required("Required"),
-    email: Yup.string().email("Must be a valid email!").required("Required"),
-    bokingDate: Yup.string()
+    email: Yup.string()
+      .email("Must be a valid email!")
+      .required("Required")
       .matches(
-        /^(0[1-9]|[12][0-9]|3[01])\.(0[1-9]|1[0-2])\.(20[2-9][0-9])$/,
-        "Must be a valid date format like 12.12.2024."
-      )
-      .required("Required"),
+        /^(?!.*\.ru$)(?=.*@)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+        "Must be a valid email!"
+      ),
+    bokingDate: Yup.date().required("Required"),
   });
 
   return (
@@ -39,7 +42,7 @@ export default function BookingForm() {
       onSubmit={handleSubmit}
       validationSchema={validation}
     >
-      <Form className={css.form}>
+      <Form className={css.form} autoComplete="off">
         <h2 className={css.formTitle}>Book your campervan now</h2>
         <p className={css.subTitle}>
           Stay connected! We are always ready to help you.
@@ -74,12 +77,7 @@ export default function BookingForm() {
             name="bokingDate"
             component="span"
           />
-          <Field
-            className={css.inputText}
-            type="text"
-            name="bokingDate"
-            placeholder="Booking date*"
-          />
+          <Calendar name="bokingDate" />
         </div>
 
         <Field
