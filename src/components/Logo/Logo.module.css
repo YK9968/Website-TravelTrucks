@@ -1,4 +1,10 @@
 .iconContainer {
-  padding: 28px 0;
-  margin-right: 450px;
+  @media (min-width: 375px) {
+    padding: 28px 0;
+    margin-right: auto;
+  }
+
+  @media (min-width: 1440px) {
+    margin-right: 450px;
+  }
 }

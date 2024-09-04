@@ -1,3 +1,69 @@
+.container {
+  @media (min-width: 375px) {
+    padding: 260px 16px;
+    width: 375px;
+  }
+
+  @media (max-width: 767px) {
+    margin: 0 auto;
+  }
+  @media (min-width: 768px) {
+    padding: 260px 32px;
+    width: 768px;
+  }
+  @media (min-width: 1440px) {
+    padding: 260px 64px;
+    max-width: 1440px;
+  }
+}
+
+.mainTitle {
+  @media (min-width: 375px) {
+    font-weight: 600;
+    font-size: 36px;
+    color: var(--inputs);
+    margin-bottom: 12px;
+  }
+  @media (min-width: 768px) {
+    font-weight: 600;
+    font-size: 48px;
+    margin-bottom: 16px;
+    line-height: 67%;
+  }
+
+  @media (min-width: 1440px) {
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 67%;
+    margin-bottom: 16px;
+  }
+}
+
+.subTitle {
+  @media (min-width: 375px) {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 133%;
+    color: var(--inputs);
+    margin-bottom: 40px;
+  }
+  @media (min-width: 768px) {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 133%;
+    color: var(--inputs);
+    margin-bottom: 40px;
+  }
+
+  @media (min-width: 1440px) {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 133%;
+    color: var(--inputs);
+    margin-bottom: 40px;
+  }
+}
+
 .hero {
   margin: 0 auto;
   background-repeat: no-repeat;
@@ -6,25 +72,8 @@
   background-image: url(../../assets/img/hero-desktop.webp);
 }
 
-.container {
-  padding: 260px 64px;
-  max-width: 1440px;
-}
-
-.mainTitle {
-  font-weight: 600;
-  font-size: 48px;
-  line-height: 67%;
-  color: var(--inputs);
-  margin-bottom: 16px;
-}
-
-.subTitle {
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 133%;
-  color: var(--inputs);
-  margin-bottom: 40px;
+.catalogLink:hover {
+  background-color: var(--button-hover);
 }
 
 .catalogLink {
@@ -40,10 +89,6 @@
   letter-spacing: -0.01em;
   color: var(--white);
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.catalogLink:hover {
-  background-color: var(--button-hover);
 }
 
 @media screen and (min-resolution: 192dpi) and (min-width: 1440px),
